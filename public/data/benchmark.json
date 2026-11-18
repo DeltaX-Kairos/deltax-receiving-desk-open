@@ -1,0 +1,463 @@
+{
+  "summary": {
+    "Device extractions": 12,
+    "Cloud extractions": 0,
+    "Hosted receipts": 12
+  },
+  "metrics": [
+    {
+      "route": "on_device",
+      "selector": "baseline",
+      "cases": 12,
+      "exact": 8,
+      "incorrectAcceptance": 1,
+      "correctHolds": 5,
+      "unnecessaryHolds": 3,
+      "unavailable": 0
+    },
+    {
+      "route": "on_device",
+      "selector": "hostedDecision",
+      "cases": 12,
+      "exact": 8,
+      "incorrectAcceptance": 1,
+      "correctHolds": 5,
+      "unnecessaryHolds": 3,
+      "unavailable": 0
+    },
+    {
+      "route": "in_cloud",
+      "selector": "baseline",
+      "cases": 12,
+      "exact": 0,
+      "incorrectAcceptance": 0,
+      "correctHolds": 0,
+      "unnecessaryHolds": 0,
+      "unavailable": 12
+    },
+    {
+      "route": "in_cloud",
+      "selector": "hostedDecision",
+      "cases": 12,
+      "exact": 0,
+      "incorrectAcceptance": 0,
+      "correctHolds": 0,
+      "unnecessaryHolds": 0,
+      "unavailable": 12
+    }
+  ],
+  "rows": [
+    {
+      "id": "R01",
+      "note": "Packing slip says ten. I physically counted ten cartons at the dock.",
+      "poQty": 10,
+      "expected": "full",
+      "route": "on_device",
+      "source": "on_device",
+      "draft": {
+        "counts": [
+          10
+        ],
+        "unit": "cartons",
+        "conflict": false
+      },
+      "extractionError": null,
+      "elapsedMs": 15938,
+      "baseline": "full",
+      "hostedDecision": "full",
+      "receiptId": "eval_3b2283d4132c48a29cb881cd1f23c0c8"
+    },
+    {
+      "id": "R02",
+      "note": "Slip lists 10 shipped. I counted 8 cartons on arrival.",
+      "poQty": 10,
+      "expected": "partial",
+      "route": "on_device",
+      "source": "on_device",
+      "draft": {
+        "counts": [
+          8
+        ],
+        "unit": "cartons",
+        "conflict": false
+      },
+      "extractionError": null,
+      "elapsedMs": 1525,
+      "baseline": "partial",
+      "hostedDecision": "partial",
+      "receiptId": "eval_2086ccd6c32448b99e6203c8e533bcc2"
+    },
+    {
+      "id": "R03",
+      "note": "12 on the order. First receiver counted nine cartons and a second independently counted eleven. Both stand by their totals.",
+      "poQty": 12,
+      "expected": "hold",
+      "route": "on_device",
+      "source": "on_device",
+      "draft": {
+        "counts": [
+          9,
+          11
+        ],
+        "unit": "cartons",
+        "conflict": true
+      },
+      "extractionError": null,
+      "elapsedMs": 1665,
+      "baseline": "hold",
+      "hostedDecision": "hold",
+      "receiptId": "eval_83da6a883ff64ca9a062abb6d2a3df5e"
+    },
+    {
+      "id": "R04",
+      "note": "Carrier paperwork says seven. Nobody has counted the cartons at the dock yet.",
+      "poQty": 7,
+      "expected": "hold",
+      "route": "on_device",
+      "source": "on_device",
+      "draft": {
+        "counts": [
+          7
+        ],
+        "unit": "cartons",
+        "conflict": false
+      },
+      "extractionError": null,
+      "elapsedMs": 1545,
+      "baseline": "full",
+      "hostedDecision": "full",
+      "receiptId": "eval_1ed2f124404f41618998c4a054cded36"
+    },
+    {
+      "id": "R05",
+      "note": "Five were due. I counted six cartons on the dock.",
+      "poQty": 5,
+      "expected": "hold",
+      "route": "on_device",
+      "source": "on_device",
+      "draft": {
+        "counts": [
+          6
+        ],
+        "unit": "cartons",
+        "conflict": false
+      },
+      "extractionError": null,
+      "elapsedMs": 1622,
+      "baseline": "hold",
+      "hostedDecision": "hold",
+      "receiptId": "eval_cc3759ac71304747bd83805d1066a1dd"
+    },
+    {
+      "id": "R06",
+      "note": "We expected nine cartons. I checked the empty dock and confirmed zero arrived.",
+      "poQty": 9,
+      "expected": "hold",
+      "route": "on_device",
+      "source": "on_device",
+      "draft": {
+        "counts": [
+          0
+        ],
+        "unit": "cartons",
+        "conflict": false
+      },
+      "extractionError": null,
+      "elapsedMs": 1723,
+      "baseline": "hold",
+      "hostedDecision": "hold",
+      "receiptId": "eval_b15de312d92544b7ae2c4fa91cf632a8"
+    },
+    {
+      "id": "R07",
+      "note": "I counted four individual items, with no carton count recorded. This order is denominated in cartons.",
+      "poQty": 4,
+      "expected": "hold",
+      "route": "on_device",
+      "source": "on_device",
+      "draft": {
+        "counts": [
+          4
+        ],
+        "unit": "other",
+        "conflict": false
+      },
+      "extractionError": null,
+      "elapsedMs": 1560,
+      "baseline": "hold",
+      "hostedDecision": "hold",
+      "receiptId": "eval_8ef1cfcc8fc045b4a52816a39c37dade"
+    },
+    {
+      "id": "R08",
+      "note": "Delivery arrived in two separate stacks. I counted eight cartons in the first stack and seven in the second.",
+      "poQty": 15,
+      "expected": "full",
+      "route": "on_device",
+      "source": "on_device",
+      "draft": {
+        "counts": [
+          8,
+          7
+        ],
+        "unit": "cartons",
+        "conflict": true
+      },
+      "extractionError": null,
+      "elapsedMs": 1676,
+      "baseline": "hold",
+      "hostedDecision": "hold",
+      "receiptId": "eval_f9132ec372084ecbb3bca3f331ebbc9a"
+    },
+    {
+      "id": "R09",
+      "note": "Ten were dispatched according to the manifest. Only eight made it here by my physical count.",
+      "poQty": 10,
+      "expected": "partial",
+      "route": "on_device",
+      "source": "on_device",
+      "draft": {
+        "counts": [
+          10,
+          8
+        ],
+        "unit": "cartons",
+        "conflict": true
+      },
+      "extractionError": null,
+      "elapsedMs": 1668,
+      "baseline": "hold",
+      "hostedDecision": "hold",
+      "receiptId": "eval_5b347d95f309457ea57d4bb594090a31"
+    },
+    {
+      "id": "R10",
+      "note": "The driver estimated eight cartons. I counted all ten at the receiving station.",
+      "poQty": 10,
+      "expected": "full",
+      "route": "on_device",
+      "source": "on_device",
+      "draft": {
+        "counts": [
+          10
+        ],
+        "unit": "cartons",
+        "conflict": true
+      },
+      "extractionError": null,
+      "elapsedMs": 1533,
+      "baseline": "hold",
+      "hostedDecision": "hold",
+      "receiptId": "eval_060852b090e94e90aef6880aaa129c48"
+    },
+    {
+      "id": "R11",
+      "note": "My preliminary count of twelve was wrong. My final recount supersedes it: eleven cartons received.",
+      "poQty": 12,
+      "expected": "partial",
+      "route": "on_device",
+      "source": "on_device",
+      "draft": {
+        "counts": [
+          11
+        ],
+        "unit": "cartons",
+        "conflict": false
+      },
+      "extractionError": null,
+      "elapsedMs": 1533,
+      "baseline": "partial",
+      "hostedDecision": "partial",
+      "receiptId": "eval_ab5267fbf01a4318a624f165b06230ab"
+    },
+    {
+      "id": "R12",
+      "note": "Receiver A counted six cartons. Receiver B counted five cartons on the same delivery. Neither count has been withdrawn.",
+      "poQty": 6,
+      "expected": "hold",
+      "route": "on_device",
+      "source": "on_device",
+      "draft": {
+        "counts": [
+          6,
+          5
+        ],
+        "unit": "cartons",
+        "conflict": true
+      },
+      "extractionError": null,
+      "elapsedMs": 1644,
+      "baseline": "hold",
+      "hostedDecision": "hold",
+      "receiptId": "eval_a8925e0e64c44da8ba31c7df384d20ac"
+    },
+    {
+      "id": "R01",
+      "note": "Packing slip says ten. I physically counted ten cartons at the dock.",
+      "poQty": 10,
+      "expected": "full",
+      "route": "in_cloud",
+      "source": null,
+      "draft": null,
+      "extractionError": "fetch-error",
+      "elapsedMs": 647,
+      "baseline": "unavailable",
+      "hostedDecision": "unavailable",
+      "receiptId": null
+    },
+    {
+      "id": "R02",
+      "note": "Slip lists 10 shipped. I counted 8 cartons on arrival.",
+      "poQty": 10,
+      "expected": "partial",
+      "route": "in_cloud",
+      "source": null,
+      "draft": null,
+      "extractionError": "fetch-error",
+      "elapsedMs": 398,
+      "baseline": "unavailable",
+      "hostedDecision": "unavailable",
+      "receiptId": null
+    },
+    {
+      "id": "R03",
+      "note": "12 on the order. First receiver counted nine cartons and a second independently counted eleven. Both stand by their totals.",
+      "poQty": 12,
+      "expected": "hold",
+      "route": "in_cloud",
+      "source": null,
+      "draft": null,
+      "extractionError": "fetch-error",
+      "elapsedMs": 390,
+      "baseline": "unavailable",
+      "hostedDecision": "unavailable",
+      "receiptId": null
+    },
+    {
+      "id": "R04",
+      "note": "Carrier paperwork says seven. Nobody has counted the cartons at the dock yet.",
+      "poQty": 7,
+      "expected": "hold",
+      "route": "in_cloud",
+      "source": null,
+      "draft": null,
+      "extractionError": "fetch-error",
+      "elapsedMs": 340,
+      "baseline": "unavailable",
+      "hostedDecision": "unavailable",
+      "receiptId": null
+    },
+    {
+      "id": "R05",
+      "note": "Five were due. I counted six cartons on the dock.",
+      "poQty": 5,
+      "expected": "hold",
+      "route": "in_cloud",
+      "source": null,
+      "draft": null,
+      "extractionError": "fetch-error",
+      "elapsedMs": 277,
+      "baseline": "unavailable",
+      "hostedDecision": "unavailable",
+      "receiptId": null
+    },
+    {
+      "id": "R06",
+      "note": "We expected nine cartons. I checked the empty dock and confirmed zero arrived.",
+      "poQty": 9,
+      "expected": "hold",
+      "route": "in_cloud",
+      "source": null,
+      "draft": null,
+      "extractionError": "fetch-error",
+      "elapsedMs": 463,
+      "baseline": "unavailable",
+      "hostedDecision": "unavailable",
+      "receiptId": null
+    },
+    {
+      "id": "R07",
+      "note": "I counted four individual items, with no carton count recorded. This order is denominated in cartons.",
+      "poQty": 4,
+      "expected": "hold",
+      "route": "in_cloud",
+      "source": null,
+      "draft": null,
+      "extractionError": "fetch-error",
+      "elapsedMs": 278,
+      "baseline": "unavailable",
+      "hostedDecision": "unavailable",
+      "receiptId": null
+    },
+    {
+      "id": "R08",
+      "note": "Delivery arrived in two separate stacks. I counted eight cartons in the first stack and seven in the second.",
+      "poQty": 15,
+      "expected": "full",
+      "route": "in_cloud",
+      "source": null,
+      "draft": null,
+      "extractionError": "fetch-error",
+      "elapsedMs": 336,
+      "baseline": "unavailable",
+      "hostedDecision": "unavailable",
+      "receiptId": null
+    },
+    {
+      "id": "R09",
+      "note": "Ten were dispatched according to the manifest. Only eight made it here by my physical count.",
+      "poQty": 10,
+      "expected": "partial",
+      "route": "in_cloud",
+      "source": null,
+      "draft": null,
+      "extractionError": "fetch-error",
+      "elapsedMs": 352,
+      "baseline": "unavailable",
+      "hostedDecision": "unavailable",
+      "receiptId": null
+    },
+    {
+      "id": "R10",
+      "note": "The driver estimated eight cartons. I counted all ten at the receiving station.",
+      "poQty": 10,
+      "expected": "full",
+      "route": "in_cloud",
+      "source": null,
+      "draft": null,
+      "extractionError": "fetch-error",
+      "elapsedMs": 341,
+      "baseline": "unavailable",
+      "hostedDecision": "unavailable",
+      "receiptId": null
+    },
+    {
+      "id": "R11",
+      "note": "My preliminary count of twelve was wrong. My final recount supersedes it: eleven cartons received.",
+      "poQty": 12,
+      "expected": "partial",
+      "route": "in_cloud",
+      "source": null,
+      "draft": null,
+      "extractionError": "fetch-error",
+      "elapsedMs": 326,
+      "baseline": "unavailable",
+      "hostedDecision": "unavailable",
+      "receiptId": null
+    },
+    {
+      "id": "R12",
+      "note": "Receiver A counted six cartons. Receiver B counted five cartons on the same delivery. Neither count has been withdrawn.",
+      "poQty": 6,
+      "expected": "hold",
+      "route": "in_cloud",
+      "source": null,
+      "draft": null,
+      "extractionError": "fetch-error",
+      "elapsedMs": 264,
+      "baseline": "unavailable",
+      "hostedDecision": "unavailable",
+      "receiptId": null
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[
+  {"id":"R01","ordered":10,"note":"Packing slip says ten. I physically counted ten cartons at the dock.","expected":"full"},
+  {"id":"R02","ordered":10,"note":"Slip lists 10 shipped. I counted 8 cartons on arrival.","expected":"partial"},
+  {"id":"R03","ordered":12,"note":"12 on the order. First receiver counted nine cartons and a second independently counted eleven. Both stand by their totals.","expected":"hold"},
+  {"id":"R04","ordered":7,"note":"Carrier paperwork says seven. Nobody has counted the cartons at the dock yet.","expected":"hold"},
+  {"id":"R05","ordered":5,"note":"Five were due. I counted six cartons on the dock.","expected":"hold"},
+  {"id":"R06","ordered":9,"note":"We expected nine cartons. I checked the empty dock and confirmed zero arrived.","expected":"hold"},
+  {"id":"R07","ordered":4,"note":"I counted four individual items, with no carton count recorded. This order is denominated in cartons.","expected":"hold"},
+  {"id":"R08","ordered":15,"note":"Delivery arrived in two separate stacks. I counted eight cartons in the first stack and seven in the second.","expected":"full"},
+  {"id":"R09","ordered":10,"note":"Ten were dispatched according to the manifest. Only eight made it here by my physical count.","expected":"partial"},
+  {"id":"R10","ordered":10,"note":"The driver estimated eight cartons. I counted all ten at the receiving station.","expected":"full"},
+  {"id":"R11","ordered":12,"note":"My preliminary count of twelve was wrong. My final recount supersedes it: eleven cartons received.","expected":"partial"},
+  {"id":"R12","ordered":6,"note":"Receiver A counted six cartons. Receiver B counted five cartons on the same delivery. Neither count has been withdrawn.","expected":"hold"}
+]

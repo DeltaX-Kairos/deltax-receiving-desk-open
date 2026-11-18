@@ -1,0 +1,112 @@
+{
+  "digest": "c38b36b657b79ccd8911c0cb2ae31d0710b8b5d9300ea387e5728cdff9987491",
+  "context": {
+    "case_id": "R04",
+    "inference_source": "on_device",
+    "ordered_cartons": 7,
+    "physical_counts": "[7]",
+    "unit": "cartons",
+    "conflict": false,
+    "valid_extraction": true
+  },
+  "candidates": [
+    {
+      "candidate_id": "full",
+      "description": "Full Receipt",
+      "semantic_class": "validate",
+      "operator_reported_support": 1
+    },
+    {
+      "candidate_id": "partial",
+      "description": "Partial Receipt",
+      "semantic_class": "validate",
+      "operator_reported_support": 0
+    },
+    {
+      "candidate_id": "hold",
+      "description": "Hold for Review",
+      "semantic_class": "validate",
+      "operator_reported_support": 0
+    }
+  ],
+  "hostedMs": 1763,
+  "receipt": {
+    "status": "selected",
+    "code": "SELECTED",
+    "counted": true,
+    "receiptId": "eval_1ed2f124404f41618998c4a054cded36",
+    "providerReceiptId": "a7b238ed-cc4c-5ccf-9612-f20099bbc5c4",
+    "selectedCandidateId": "full",
+    "reasonCodes": [
+      "candidate_selected_within_bounded_evaluation"
+    ],
+    "evidence": {
+      "requestDigest": "da4694dcc9fbc5f5daec171629c2a67ffa7e1c00e2f0bd9a349f12c74f73de92",
+      "policyDigest": "4ade5f6da0dff463ab0b8dc28633e3e087fae4beeef55cb81e027e1cb0fe5e20",
+      "receiptDigest": "ac98a9748900712add72244985cf9c20f6b6f7b9ae10816c0eea3d5ca6b07f6e",
+      "gates": [
+        {
+          "gateId": "HES-G01",
+          "decision": "pass",
+          "reasonCode": "exact_governance_and_source_bindings"
+        },
+        {
+          "gateId": "HES-G02",
+          "decision": "pass",
+          "reasonCode": "fixed_profile_api_descriptor_and_release"
+        },
+        {
+          "gateId": "HES-G03",
+          "decision": "pass",
+          "reasonCode": "grant_bound_tenant_and_principal"
+        },
+        {
+          "gateId": "HES-G04",
+          "decision": "pass",
+          "reasonCode": "closed_catalog_with_external_shadowed"
+        },
+        {
+          "gateId": "HES-G05",
+          "decision": "pass",
+          "reasonCode": "sealed_result_only_no_execution_or_tool_effect"
+        },
+        {
+          "gateId": "HES-G06",
+          "decision": "pass",
+          "reasonCode": "bounded_secret_free_scalar_payload"
+        },
+        {
+          "gateId": "HES-G07",
+          "decision": "pass",
+          "reasonCode": "one_use_grant_and_trace_required"
+        },
+        {
+          "gateId": "HES-G08",
+          "decision": "pass",
+          "reasonCode": "protected_hook_release_and_no_authority_identity"
+        },
+        {
+          "gateId": "HES-G09",
+          "decision": "pass",
+          "reasonCode": "upstream_quota_bound_in_exact_grant"
+        },
+        {
+          "gateId": "HES-G10",
+          "decision": "pass",
+          "reasonCode": "fail_closed_security_and_input_boundary"
+        },
+        {
+          "gateId": "HES-G11",
+          "decision": "pass",
+          "reasonCode": "bounded_claims_and_non_equivalences"
+        },
+        {
+          "gateId": "HES-G12",
+          "decision": "pass",
+          "reasonCode": "no_release_deployment_payment_or_downstream_authority"
+        }
+      ],
+      "evaluatedAt": "2026-11-18T22:03:23.113Z"
+    }
+  }
+}

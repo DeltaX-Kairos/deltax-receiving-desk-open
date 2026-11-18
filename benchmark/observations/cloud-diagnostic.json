@@ -1,0 +1,86 @@
+[
+  {
+    "id": "R01",
+    "source": null,
+    "error": "AI: Error fetching from [endpoint] [403 ] The Gemini API free tier is not available for this project. To use the Gemini API, please set up billing to upgrade to the paid tier at [endpoint] For more information, see [endpoint] (AI/fetch-error)",
+    "raw": null,
+    "elapsedMs": 507
+  },
+  {
+    "id": "R02",
+    "source": null,
+    "error": "AI: Error fetching from [endpoint] [403 ] The Gemini API free tier is not available for this project. To use the Gemini API, please set up billing to upgrade to the paid tier at [endpoint] For more information, see [endpoint] (AI/fetch-error)",
+    "raw": null,
+    "elapsedMs": 297
+  },
+  {
+    "id": "R03",
+    "source": null,
+    "error": "AI: Error fetching from [endpoint] [403 ] The Gemini API free tier is not available for this project. To use the Gemini API, please set up billing to upgrade to the paid tier at [endpoint] For more information, see [endpoint] (AI/fetch-error)",
+    "raw": null,
+    "elapsedMs": 261
+  },
+  {
+    "id": "R04",
+    "source": null,
+    "error": "AI: Error fetching from [endpoint] [403 ] The Gemini API free tier is not available for this project. To use the Gemini API, please set up billing to upgrade to the paid tier at [endpoint] For more information, see [endpoint] (AI/fetch-error)",
+    "raw": null,
+    "elapsedMs": 297
+  },
+  {
+    "id": "R05",
+    "source": null,
+    "error": "AI: Error fetching from [endpoint] [403 ] The Gemini API free tier is not available for this project. To use the Gemini API, please set up billing to upgrade to the paid tier at [endpoint] For more information, see [endpoint] (AI/fetch-error)",
+    "raw": null,
+    "elapsedMs": 278
+  },
+  {
+    "id": "R06",
+    "source": null,
+    "error": "AI: Error fetching from [endpoint] [403 ] The Gemini API free tier is not available for this project. To use the Gemini API, please set up billing to upgrade to the paid tier at [endpoint] For more information, see [endpoint] (AI/fetch-error)",
+    "raw": null,
+    "elapsedMs": 312
+  },
+  {
+    "id": "R07",
+    "source": null,
+    "error": "AI: Error fetching from [endpoint] [403 ] The Gemini API free tier is not available for this project. To use the Gemini API, please set up billing to upgrade to the paid tier at [endpoint] For more information, see [endpoint] (AI/fetch-error)",
+    "raw": null,
+    "elapsedMs": 314
+  },
+  {
+    "id": "R08",
+    "source": null,
+    "error": "AI: Error fetching from [endpoint] [403 ] The Gemini API free tier is not available for this project. To use the Gemini API, please set up billing to upgrade to the paid tier at [endpoint] For more information, see [endpoint] (AI/fetch-error)",
+    "raw": null,
+    "elapsedMs": 325
+  },
+  {
+    "id": "R09",
+    "source": null,
+    "error": "AI: Error fetching from [endpoint] [403 ] The Gemini API free tier is not available for this project. To use the Gemini API, please set up billing to upgrade to the paid tier at [endpoint] For more information, see [endpoint] (AI/fetch-error)",
+    "raw": null,
+    "elapsedMs": 319
+  },
+  {
+    "id": "R10",
+    "source": null,
+    "error": "AI: Error fetching from [endpoint] [403 ] The Gemini API free tier is not available for this project. To use the Gemini API, please set up billing to upgrade to the paid tier at [endpoint] For more information, see [endpoint] (AI/fetch-error)",
+    "raw": null,
+    "elapsedMs": 348
+  },
+  {
+    "id": "R11",
+    "source": null,
+    "error": "AI: Error fetching from [endpoint] [403 ] The Gemini API free tier is not available for this project. To use the Gemini API, please set up billing to upgrade to the paid tier at [endpoint] For more information, see [endpoint] (AI/fetch-error)",
+    "raw": null,
+    "elapsedMs": 319
+  },
+  {
+    "id": "R12",
+    "source": null,
+    "error": "AI: Error fetching from [endpoint] [403 ] The Gemini API free tier is not available for this project. To use the Gemini API, please set up billing to upgrade to the paid tier at [endpoint] For more information, see [endpoint] (AI/fetch-error)",
+    "raw": null,
+    "elapsedMs": 291
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "id": "R01",
+    "source": "on_device",
+    "draft": {
+      "counts": [
+        10
+      ],
+      "unit": "cartons",
+      "conflict": false
+    },
+    "raw": "```json\n{\n  \"counts\": [\n    10\n  ],\n  \"unit\": \"cartons\",\n  \"conflict\": false\n}\n```",
+    "elapsedMs": 15938
+  },
+  {
+    "id": "R02",
+    "source": "on_device",
+    "draft": {
+      "counts": [
+        8
+      ],
+      "unit": "cartons",
+      "conflict": false
+    },
+    "raw": "```json\n{\n  \"counts\": [\n    8\n  ],\n  \"unit\": \"cartons\",\n  \"conflict\": false\n}\n```",
+    "elapsedMs": 1525
+  },
+  {
+    "id": "R03",
+    "source": "on_device",
+    "draft": {
+      "counts": [
+        9,
+        11
+      ],
+      "unit": "cartons",
+      "conflict": true
+    },
+    "raw": "```json\n{\n  \"counts\": [\n    9,\n    11\n  ],\n  \"unit\": \"cartons\",\n  \"conflict\": true\n}\n```",
+    "elapsedMs": 1665
+  },
+  {
+    "id": "R04",
+    "source": "on_device",
+    "draft": {
+      "counts": [
+        7
+      ],
+      "unit": "cartons",
+      "conflict": false
+    },
+    "raw": "```json\n{\n  \"counts\": [\n    7\n  ],\n  \"unit\": \"cartons\",\n  \"conflict\": false\n}\n```",
+    "elapsedMs": 1545
+  },
+  {
+    "id": "R05",
+    "source": "on_device",
+    "draft": {
+      "counts": [
+        6
+      ],
+      "unit": "cartons",
+      "conflict": false
+    },
+    "raw": "```json\n{\n  \"counts\": [\n    6\n  ],\n  \"unit\": \"cartons\",\n  \"conflict\": false\n}\n```",
+    "elapsedMs": 1622
+  },
+  {
+    "id": "R06",
+    "source": "on_device",
+    "draft": {
+      "counts": [
+        0
+      ],
+      "unit": "cartons",
+      "conflict": false
+    },
+    "raw": "```json\n{\n  \"counts\": [\n    0\n  ],\n  \"unit\": \"cartons\",\n  \"conflict\": false\n}\n```",
+    "elapsedMs": 1723
+  },
+  {
+    "id": "R07",
+    "source": "on_device",
+    "draft": {
+      "counts": [
+        4
+      ],
+      "unit": "other",
+      "conflict": false
+    },
+    "raw": "```json\n{\n  \"counts\": [\n    4\n  ],\n  \"unit\": \"other\",\n  \"conflict\": false\n}\n```",
+    "elapsedMs": 1560
+  },
+  {
+    "id": "R08",
+    "source": "on_device",
+    "draft": {
+      "counts": [
+        8,
+        7
+      ],
+      "unit": "cartons",
+      "conflict": true
+    },
+    "raw": "```json\n{\n  \"counts\": [\n    8,\n    7\n  ],\n  \"unit\": \"cartons\",\n  \"conflict\": true\n}\n```",
+    "elapsedMs": 1676
+  },
+  {
+    "id": "R09",
+    "source": "on_device",
+    "draft": {
+      "counts": [
+        10,
+        8
+      ],
+      "unit": "cartons",
+      "conflict": true
+    },
+    "raw": "```json\n{\n  \"counts\": [\n    10,\n    8\n  ],\n  \"unit\": \"cartons\",\n  \"conflict\": true\n}\n```",
+    "elapsedMs": 1668
+  },
+  {
+    "id": "R10",
+    "source": "on_device",
+    "draft": {
+      "counts": [
+        10
+      ],
+      "unit": "cartons",
+      "conflict": true
+    },
+    "raw": "```json\n{\n  \"counts\": [\n    10\n  ],\n  \"unit\": \"cartons\",\n  \"conflict\": true\n}\n```",
+    "elapsedMs": 1533
+  },
+  {
+    "id": "R11",
+    "source": "on_device",
+    "draft": {
+      "counts": [
+        11
+      ],
+      "unit": "cartons",
+      "conflict": false
+    },
+    "raw": "```json\n{\n  \"counts\": [\n    11\n  ],\n  \"unit\": \"cartons\",\n  \"conflict\": false\n}\n```",
+    "elapsedMs": 1533
+  },
+  {
+    "id": "R12",
+    "source": "on_device",
+    "draft": {
+      "counts": [
+        6,
+        5
+      ],
+      "unit": "cartons",
+      "conflict": true
+    },
+    "raw": "```json\n{\n  \"counts\": [\n    6,\n    5\n  ],\n  \"unit\": \"cartons\",\n  \"conflict\": true\n}\n```",
+    "elapsedMs": 1644
+  }
+]

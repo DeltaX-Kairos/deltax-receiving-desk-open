@@ -1,0 +1,6 @@
+DeltaX Receiving Desk
+Copyright 2026 Dominick Noval
+
+The Apache-2.0 hosted Evaluate transport is adapted from DeltaX Lineage Desk (61929483f0442aa77a089ba8955f4999932b70a7), which derived it from DeltaX Decision Relay (08a9aa8264204f4a917f4875351c4ed6faae90be). The objective has been adapted for fictional warehouse receiving. Hosted DeltaX Evaluate is a pre-existing external service.
+https://github.com/DeltaX-Kairos/deltax-lineage-desk-open
+https://github.com/DeltaX-Kairos/deltax-decision-relay-open
