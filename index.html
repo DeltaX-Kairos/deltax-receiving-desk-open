@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeltaX Receiving Desk</title>
+    <script type="module" crossorigin src="./assets/index-CAUYP5Gj.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CDdPE8ZM.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-workbench">Skip to receiving workbench</a>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">DX</div>
+          <div>
+            <h1>DeltaX Receiving Desk</h1>
+            <p class="brand-subtitle">
+              Dock carton verification, editable extraction, and deterministic receiving policy
+            </p>
+          </div>
+        </div>
+
+        <div class="topbar-meta" aria-label="Operational status and boundaries">
+          <span class="pill pill-guard">Assessment Only · No Auto-Accept</span>
+          <span class="pill pill-guard">No Inventory Mutation</span>
+          <span id="persistence-pill" class="pill pill-neutral" role="status" aria-live="polite">
+            Initial sample loaded
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-shell">
+      <section
+        id="recovery-banner"
+        class="recovery-banner"
+        aria-labelledby="recovery-title"
+        hidden
+      >
+        <div class="recovery-copy">
+          <strong id="recovery-title">Saved local draft available</strong>
+          <p id="recovery-summary" class="recovery-summary"></p>
+        </div>
+        <div class="recovery-actions">
+          <button id="banner-recover-btn" type="button" class="btn btn-primary">
+            Recover Saved Draft
+          </button>
+          <button id="banner-discard-btn" type="button" class="btn btn-ghost">
+            Discard Saved Draft
+          </button>
+        </div>
+      </section>
+
+      <main id="main-workbench" class="workbench-grid">
+        <!-- Left column: Intake, Extraction & Operator Edits -->
+        <div class="workbench-column">
+          <section class="card" aria-labelledby="intake-heading">
+            <div class="card-header">
+              <div>
+                <h2 id="intake-heading">Delivery note</h2>
+                <p class="card-subtitle">
+                  Enter PO ordered quantity and receiver dock note, then extract via Firebase AI Logic.
+                </p>
+              </div>
+              <button id="reset-sample-btn" type="button" class="btn btn-ghost btn-sm">
+                Reset to Initial Sample
+              </button>
+            </div>
+
+            <form id="intake-form" class="stack-md" novalidate>
+              <div class="field-row">
+                <div class="field field-po">
+                  <label for="po-qty">PO Ordered Quantity (cartons)</label>
+                  <input
+                    id="po-qty"
+                    name="poQty"
+                    type="number"
+                    min="1"
+                    step="1"
+                    inputmode="numeric"
+                    value="10"
+                    aria-describedby="po-qty-hint po-qty-error"
+                  />
+                  <p id="po-qty-hint" class="field-hint">Initial sample PO: 10 cartons.</p>
+                  <p id="po-qty-error" class="field-error" role="alert" hidden></p>
+                </div>
+
+                <div class="field field-mode">
+                  <label for="inference-mode">Firebase Inference Mode</label>
+                  <select id="inference-mode" name="mode" aria-describedby="mode-hint">
+                    <option value="prefer_on_device">Prefer On-Device (Hybrid / Cloud Fallback)</option>
+                    <option value="only_on_device">Only On-Device (Chrome Nano)</option>
+                  </select>
+                  <p id="mode-hint" class="field-hint">
+                    Hybrid mode can send the note to Firebase when the local model is unavailable. Device-only mode keeps inference on this computer.
+                  </p>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="count-note">Carton Count Note</label>
+                <textarea
+                  id="count-note"
+                  name="note"
+                  rows="4"
+                  aria-describedby="note-hint note-error"
+                >Dock check: counted 8 intact cartons on pallet; 2 short of PO.</textarea>
+                <p id="note-hint" class="field-hint">
+                  Confirmed physical totals belong in counts; superseded counts and driver estimates are excluded, and independent stacks are summed.
+                </p>
+                <p id="note-error" class="field-error" role="alert" hidden></p>
+              </div>
+
+              <div class="action-bar">
+                <button id="extract-btn" type="submit" class="btn btn-primary">
+                  Extract Draft via Firebase
+                </button>
+                <span id="extraction-status" class="status-inline" role="status" aria-live="polite">
+                  Ready — initial sample loaded (PO 10, observed 8).
+                </span>
+              </div>
+            </form>
+          </section>
+
+          <section class="card" aria-labelledby="extraction-heading">
+            <div class="card-header">
+              <div>
+                <h2 id="extraction-heading">Extraction Provenance &amp; Operator Draft</h2>
+                <p class="card-subtitle">
+                  Review Firebase’s raw output and edit the working draft before assessment if needed.
+                </p>
+              </div>
+              <button
+                id="revert-edits-btn"
+                type="button"
+                class="btn btn-ghost btn-sm"
+                disabled
+              >
+                Reset Edits to Extraction
+              </button>
+            </div>
+
+            <div class="provenance-grid" aria-label="Extraction provenance">
+              <div class="provenance-item">
+                <span class="meta-label">Actual Inference Source</span>
+                <span id="inference-source-badge" class="source-badge source-pending">
+                  Not yet extracted
+                </span>
+              </div>
+              <div class="provenance-item">
+                <span class="meta-label">Model / Timing</span>
+                <span id="inference-meta-value" class="mono-value">—</span>
+              </div>
+            </div>
+
+            <div class="raw-extraction-box" aria-labelledby="raw-draft-label">
+              <div class="raw-extraction-header">
+                <span id="raw-draft-label" class="meta-label">Raw Extractor Draft (immutable)</span>
+                <span id="raw-validation-badge" class="pill pill-neutral">Pending</span>
+              </div>
+              <pre id="raw-draft-json" class="code-block">No Firebase extraction run yet. Working draft below starts on the initial sample (PO 10, observed 8).</pre>
+              <p id="raw-extraction-error" class="field-error" role="alert" hidden></p>
+            </div>
+
+            <fieldset class="editor-fieldset">
+              <legend>Editable Working Draft (used for assessment)</legend>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="draft-counts">Confirmed Physical Counts</label>
+                  <input
+                    id="draft-counts"
+                    type="text"
+                    inputmode="decimal"
+                    value="8"
+                    aria-describedby="draft-counts-hint draft-counts-error"
+                  />
+                  <p id="draft-counts-hint" class="field-hint">
+                    Single total (e.g. <code>8</code>). Leave blank if missing; use commas only for unresolved counts (e.g. <code>8, 10</code>).
+                  </p>
+                  <p id="draft-counts-error" class="field-error" role="alert" hidden></p>
+                </div>
+
+                <div class="field">
+                  <label for="draft-unit">Unit</label>
+                  <select id="draft-unit">
+                    <option value="cartons" selected>cartons</option>
+                    <option value="other">other</option>
+                    <option value="unknown">unknown</option>
+                  </select>
+                </div>
+              </div>
+
+              <label class="checkbox-field" for="draft-conflict">
+                <input id="draft-conflict" type="checkbox" />
+                <span>Unresolved count conflict or disagreement (<code>conflict: true</code>)</span>
+              </label>
+            </fieldset>
+
+            <div id="draft-diff-panel" class="diff-panel" aria-live="polite">
+              <div class="diff-header">
+                <strong>What Changed (Extraction → Operator Draft)</strong>
+                <span id="diff-status-badge" class="pill pill-neutral">No extraction yet</span>
+              </div>
+              <div id="diff-content" class="diff-content"></div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right column: Policy Assessment, Comparison & Scope -->
+        <div class="workbench-column">
+          <section class="card" aria-labelledby="decision-heading">
+            <div class="card-header">
+              <div>
+                <h2 id="decision-heading">Receiving assessment</h2>
+                <p class="card-subtitle">
+                  Deterministic baseline evaluation of PO quantity against the active working draft.
+                </p>
+              </div>
+              <span class="pill pill-guard">Read-Only Guidance</span>
+            </div>
+
+            <div
+              id="decision-banner"
+              class="decision-banner decision-partial"
+              role="status"
+              aria-live="polite"
+            >
+              <div class="decision-banner-top">
+                <span id="decision-badge" class="decision-badge">PARTIAL RECEIPT</span>
+                <span id="decision-support" class="mono-value">Support: 1.00</span>
+              </div>
+              <p id="decision-summary" class="decision-summary"></p>
+            </div>
+
+            <dl id="comparison-grid" class="comparison-grid" aria-label="PO vs physical count comparison">
+              <div class="metric-box">
+                <dt>PO Ordered</dt>
+                <dd id="cmp-po" class="mono-value">10</dd>
+              </div>
+              <div class="metric-box">
+                <dt>Confirmed Observed</dt>
+                <dd id="cmp-observed" class="mono-value">8</dd>
+              </div>
+              <div class="metric-box">
+                <dt>Variance</dt>
+                <dd id="cmp-variance" class="mono-value">-2</dd>
+              </div>
+              <div class="metric-box">
+                <dt>Unit / Conflict</dt>
+                <dd id="cmp-unit-conflict" class="mono-value">cartons · no conflict</dd>
+              </div>
+            </dl>
+
+            <div id="edit-impact-box" class="edit-impact" hidden>
+              <strong>Impact of Operator Edits on Policy</strong>
+              <p id="edit-impact-text"></p>
+            </div>
+
+            <div class="persistence-box">
+              <div class="field">
+                <label for="operator-notes">Operator Review Note (saved locally only)</label>
+                <textarea
+                  id="operator-notes"
+                  rows="2"
+                  placeholder="Optional dock note or exception follow-up for local draft..."
+                ></textarea>
+              </div>
+
+              <div class="action-bar">
+                <button id="save-draft-btn" type="button" class="btn btn-secondary">
+                  Save Draft Locally
+                </button>
+                <button id="recover-draft-btn" type="button" class="btn btn-ghost" disabled>
+                  Recover Saved Draft
+                </button>
+                <button id="clear-draft-btn" type="button" class="btn btn-ghost" disabled>
+                  Clear Saved Draft
+                </button>
+              </div>
+              <p class="field-hint">
+                Drafts persist in browser <code>localStorage</code> only. No auto-accept or inventory mutations occur.
+              </p>
+            </div>
+          </section>
+
+          <section class="card" aria-labelledby="candidates-heading">
+            <div class="card-header">
+              <div>
+                <h2 id="candidates-heading">Why each disposition scored this way</h2>
+                <p class="card-subtitle">
+                  Identical evidence and candidate menu exposed to baseline and hosted selectors without expected labels.
+                </p>
+              </div>
+            </div>
+
+            <div id="candidates-list" class="candidates-list" aria-live="polite"></div>
+
+            <p class="field-hint">
+              Support model disclosure: deterministic scores in <code>[0.00, 1.00]</code> reflect rule satisfaction strictly from PO quantity and draft evidence; gold labels are never read or passed.
+            </p>
+          </section>
+
+          <section class="card" aria-labelledby="scope-heading">
+            <div class="card-header">
+              <div>
+                <h2 id="scope-heading">Receiving rules</h2>
+              </div>
+            </div>
+            <ul class="scope-list">
+              <li>
+                <strong>Full receipt:</strong> Confirmed positive carton count equals PO quantity with no conflict.
+              </li>
+              <li>
+                <strong>Partial receipt:</strong> Confirmed positive carton count is lower than PO quantity with no conflict.
+              </li>
+              <li>
+                <strong>Hold:</strong> Zero count, overage (&gt; PO), missing physical count, unit mismatch (<code>other</code> or <code>unknown</code>), or unresolved disagreement/conflict.
+              </li>
+              <li>
+                <strong>Count scope:</strong> Superseded historical counts and declared/driver estimates are excluded; independent non-overlapping stacks are summed into one total.
+              </li>
+              <li>
+                <strong>Operational boundary:</strong> Separates AI extraction, operator confirmation, and policy decision support. Never auto-accepts receipts or mutates inventory.
+              </li>
+            </ul>
+          </section>
+        </div>
+      </main>
+
+      <!-- Bottom section: Hosted Replay vs Baseline -->
+      <section class="card replay-section" aria-labelledby="replay-heading">
+        <div class="card-header">
+          <div>
+            <h2 id="replay-heading">Recorded benchmark</h2>
+            <p class="card-subtitle">
+              Frozen fictional notes and unedited model drafts. The two selectors share the same support scores. Google denied free-tier access during the cloud benchmark.
+            </p>
+          </div>
+          <button id="reload-benchmark-btn" type="button" class="btn btn-secondary btn-sm">
+            Reload Replay
+          </button>
+        </div>
+
+        <div id="replay-container" aria-live="polite"></div>
+      </section>
+    </div>
+
+  </body>
+</html>
